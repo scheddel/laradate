@@ -1,6 +1,6 @@
 <?php
 
-return 
+return
 
 [
   'Poll dates (2 on 3)' => 'Umfragedaten (2 von 3)',
@@ -13,7 +13,7 @@ return
   'Copy hours of the first day' => 'Uhrzeiten des ersten Tags kopieren',
   'Remove a day' => 'Einen Tag entfernen',
   'Add a day' => 'Einen Tag hinzufügen',
-  'Remove this day' => 'DE_Supprimer ce jour',
+  'Remove this day' => 'Diesen Tag entfernen',
   'Remove all days' => 'Alle Tage entfernen',
   'Remove all hours' => 'Alle Uhrzeiten entfernen',
 ]

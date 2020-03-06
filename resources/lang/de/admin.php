@@ -1,6 +1,6 @@
 <?php
 
-return 
+return
 
 [
   'Back to administration' => 'Zurück zur Verwaltung',
@@ -32,7 +32,7 @@ return
   'Confirm removal of the poll' => 'Bestätigen Sie die Löschung der Umfrage',
   'polls in the database at this time' => 'Umfragen derzeit in der Datenbank',
   'Purge the polls' => 'Umfragen vollständig löschen',
-  'Installation' => 'DE_Installation',
+  'Installation' => 'Installation',
 ]
 
 ;
