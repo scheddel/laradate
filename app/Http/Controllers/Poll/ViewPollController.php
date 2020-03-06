@@ -32,7 +32,14 @@ class ViewPollController extends Controller
             ], 404);
         }
 
-        $editedVoteUniqueId = session()->get('UserVotes')[$poll->id];
+        if (
+            session()->has('UserVotes')
+            && array_key_exists($poll->id, session()->get('UserVotes'))
+        ) {
+            $editedVoteUniqueId = session()->get('UserVotes')[$poll->id];
+        } else {
+            $editedVoteUniqueId = null;
+        }
 
         if (!is_null($poll->password_hash)) {
             $password = null;

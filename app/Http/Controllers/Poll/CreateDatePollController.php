@@ -108,7 +108,6 @@ class CreateDatePollController extends Controller
                         $i++;
                     }
 
-
                     for ($i = 0; $i < count($days); $i++) {
                         $day = $request->input('days')[$i];
 
