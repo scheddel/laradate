@@ -37,7 +37,9 @@
             </p>
         </div>
     </div>
-    <hr role="presentation"/>
+    @if($show_what_is_that || $show_the_software || $show_cultivate_your_garden)
+        <hr role="presentation"/>
+    @endif
     <div class="row">
 
         @if ($show_what_is_that)

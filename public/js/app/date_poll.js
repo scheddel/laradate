@@ -77,6 +77,7 @@ $(document).ready(function () {
 
         var re_id_hours = new RegExp('"d' + (new_day_number - 1) + '-h', 'g');
         var re_name_hours = new RegExp('name="horaires' + (new_day_number - 1), 'g');
+        var rename_schedules = new RegExp('name="schedule' + (new_day_number - 1), 'g');
 
         var new_day_html = last_day.html().replace(re_id_hours, '"d' + new_day_number + '-h')
             .replace('id="day' + (new_day_number - 1) + '"', 'id="day' + new_day_number + '"')
@@ -84,13 +85,18 @@ $(document).ready(function () {
             .replace(re_name_hours, 'name="horaires' + new_day_number)
             .replace(/value="(.*?)"/g, 'value=""')
             .replace(/hours" title="(.*?)"/g, 'hours" title="" p')
-            .replace('title="' + last_day_title + '"', 'title="' + last_day_title.substring(0, last_day_title.indexOf(' ')) + ' ' + (new_day_number + 1) + '"');
+            .replace('title="' + last_day_title + '"', 'title="' + last_day_title.substring(0, last_day_title.indexOf(' ')) + ' ' + (new_day_number + 1) + '"')
+            .replace(rename_schedules, 'name="schedule' + new_day_number);
+
+        console.log(new_day_html);
 
         last_day
             .after('<fieldset>' + new_day_html + '</fieldset>')
             .next().find('legend input').val(dateStr);
         $('#day' + (new_day_number)).focus();
         $removeaday_and_copyhours.removeClass('disabled');
+
+        console.log('Huhu!', new_day_number);
     }
 
     function manageRemoveadayAndCopyhoursButtons() {

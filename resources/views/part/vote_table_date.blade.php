@@ -63,7 +63,7 @@
                     <?php $previous = $display; ?>
 
                     @for ($foo=0; $foo <= count($slot->moments)-1; $foo++)
-                        <?php $headersM = $id; ?>
+                        <?php $headersM[] = $id; ?>
                     @endfor
                 @endforeach
                 <th></th>
@@ -73,7 +73,7 @@
                 @foreach ($slots as $id=>$slot)
                     <th colspan="{{ count($slot->moments) }}" class="bg-primary day" id="D{{ $id }}">{{ strftime(__('date.DAY'), $slot->day) }}</th>
                     @for ($foo=0; $foo <= count($slot->moments)-1; $foo++)
-                        <?php $headersD = $id; ?>
+                        <?php $headersD[] = $id; ?>
                     @endfor
                 @endforeach
                 <th></th>
@@ -85,7 +85,7 @@
                 @foreach ($slots as $slot)
                     @foreach ($slot->moments as $id=>$moment)
                         <th colspan="1" class="bg-info" id="H{{ $headersDCount }}">{{ $moment }}</th>
-                        <?php $headersH = $headersDCount; ?>
+                        <?php $headersH[] = $headersDCount; ?>
                         <?php $headersDCount++; ?>
                         <?php $slots_raw[] = strftime(__('date.FULL'), $slot->day) ?>
                     @endforeach
@@ -302,10 +302,10 @@
                 $('#showChart')
                         .after("<h3>@lang('poll_results.Chart')</h3><canvas id=\"Chart\"></canvas>")
                         .remove();
-                               
+
                 var resIfneedbe = [];
                 var resYes = [];
-            
+
                 $('#addition').find('td').each(function () {
                     var inbCountText = $(this).find('.inb-count').text();
                     if(inbCountText != '' && inbCountText != undefined) {
@@ -359,7 +359,7 @@
             });
         });
     </script>
-    
+
 @endif
 
 @if (!$hidden)
